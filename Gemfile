@@ -73,12 +73,4 @@ group :development, :test do
   gem 'binding_of_caller'
 end
 
-gem 'haml-rails'
-group :development, :test do
-end
 
-group :development, :test do
-end
-
-group :development, :test do
-end
