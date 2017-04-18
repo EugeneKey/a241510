@@ -253,14 +253,14 @@ class MindappController < ApplicationController
   # process images from first level
   def get_image(key, params)
     doc = Mindapp::Doc.create(
-        :name=> params.key.to_s,
-        :xmain=> params(@xmain.id),
-        :runseq=> params(@runseq.id),
+        :name=> key.to_s,
+        :xmain=> @xmain.id,
+        :runseq=> @runseq.id,
         :filename=> params.original_filename,
         :content_type => params.content_type || 'application/zip',
-        :data_text=> params(''),
-        :display=>params.true,
-        :secured => params(@xmain.service.secured ))
+        :data_text=> '',
+        :display=>true,
+        :secured => @xmain.service.secured )
     if defined?(IMAGE_LOCATION)
       filename = "#{IMAGE_LOCATION}/f#{Param.gen(:asset_id)}"
       File.open(filename,"wb") { |f| f.write(params.read) }
@@ -381,19 +381,19 @@ class MindappController < ApplicationController
   def create_xmain(service)
     c = name2camel(service.module.code)
     custom_controller= "#{c}Controller"
-    Mindapp::Xmain.create :service=>params.service,
-                          :start=>params.Time.now,
-                          :name=>params.service.name,
-                          :ip=> params.get_ip,
-                          :status=>params('I'), # init
-                          :user=>params.current_user,
+    Mindapp::Xmain.create :service=>service,
+                          :start=>Time.now,
+                          :name=>service.name,
+                          :ip=> get_ip,
+                          :status=>'I', # init
+                          :user=>current_user,
                           :xvars=> {
-                              :service_id=>params.service.id, :p=>params,
+                              :service_id=>service.id, :p=>params,
                               :id=>params[:id],
-                              :user_id=>params.current_user.try(:id),
-                              :custom_controller=>params.custom_controller,
-                              :host=>params.request.host,
-                              :referer=>params.request.env['HTTP_REFERER']
+                              :user_id=>current_user.try(:id),
+                              :custom_controller=>custom_controller,
+                              :host=>request.host,
+                              :referer=>request.env['HTTP_REFERER']
                           }
   end
   def create_runseq(xmain)
