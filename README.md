@@ -1,5 +1,5 @@
 
-  = image_tag "logo_mindapp.png"
+
   
 ** You are working on 
 
