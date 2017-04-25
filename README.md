@@ -3,7 +3,7 @@
   
 ** You are working on 
 
-+ gem 'mindapp', github: 'kul1/mindapp', branch: 'f241502'
++ gem 'mindapp', github: 'kul1/mindapp', branch: 'a241502'
 
 ** Requirements
 
