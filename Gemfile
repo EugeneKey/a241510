@@ -8,7 +8,7 @@ gem 'mindapp', github:'kul1/mindapp', branch:'a241510'
 ruby '2.4.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.0.rc1'
+gem 'rails', '~> 5.1.0.rc2'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-byebug'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13.0'
   gem 'selenium-webdriver'
@@ -65,6 +66,7 @@ gem 'redcarpet'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'omniauth-identity'
 gem 'cloudinary'
+gem 'kaminari'
 gem 'kaminari-mongoid'
 
 gem 'jquery-rails'

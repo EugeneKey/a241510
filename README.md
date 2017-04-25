@@ -1,13 +1,10 @@
-
-
-  
 ** You are working on 
 
 + gem 'mindapp', github: 'kul1/mindapp', branch: 'a241510'
 
 ** Requirements
 
-+ Rails 5.1.0rc1
++ Rails 5.1.0rc2
 + Rubygems 2.4.1
 
 ** Installation
@@ -19,3 +16,4 @@
   + $ rails generate mindapp:mongoid
   + $ rake db:seed, will create initial user:password admin:secret
   + $ when update app/mindapp/index.mm, run rake mindapp:update
+

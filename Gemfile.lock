@@ -8,8 +8,8 @@ GIT
 
 GIT
   remote: https://github.com/kul1/mindapp.git
-  revision: 0e0256aed90604e51aa4a53eec5f76722521cd5b
-  branch: f241502
+  revision: 7ed27c52c359f701842d31c210afbbb53ec78847
+  branch: a241510
   specs:
     mindapp (0.0.8)
 
@@ -142,6 +142,17 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery_mobile_rails (1.4.5)
       railties (>= 3.1.0)
+    kaminari (1.0.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.0.1)
+      kaminari-activerecord (= 1.0.1)
+      kaminari-core (= 1.0.1)
+    kaminari-actionview (1.0.1)
+      actionview
+      kaminari-core (= 1.0.1)
+    kaminari-activerecord (1.0.1)
+      activerecord
+      kaminari-core (= 1.0.1)
     kaminari-core (1.0.1)
     kaminari-mongoid (1.0.1)
       kaminari-core (~> 1.0)
@@ -177,6 +188,13 @@ GEM
     prawn (2.2.2)
       pdf-core (~> 0.7.0)
       ttfunk (~> 1.5)
+    pry (0.10.4)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-byebug (3.4.2)
+      byebug (~> 9.0)
+      pry (~> 0.10)
     public_suffix (2.0.5)
     puma (3.8.2)
     rack (2.0.1)
@@ -245,6 +263,7 @@ GEM
       rubyzip (~> 1.0)
       websocket (~> 1.0)
     sexp_processor (4.9.0)
+    slop (3.6.0)
     spring (2.0.1)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -301,6 +320,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   jquery_mobile_rails
+  kaminari
   kaminari-mongoid
   listen (>= 3.0.5, < 3.2)
   mail
@@ -310,8 +330,9 @@ DEPENDENCIES
   nokogiri
   omniauth-identity
   prawn
+  pry-byebug
   puma (~> 3.7)
-  rails (~> 5.1.0.rc1)
+  rails (~> 5.1.0.rc2)
   redcarpet
   rspec
   rspec-rails
