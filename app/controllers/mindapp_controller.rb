@@ -31,7 +31,7 @@ class MindappController < ApplicationController
     else
       js = ""
     end
-    render html: "<script>#{js}</script>"
+    render plain: "<script>#{js}</script>"
   end
   def init
     module_code, code = params[:s].split(":")
@@ -216,6 +216,7 @@ class MindappController < ApplicationController
           get_image1(k, k1, params[k][k1])
         }
       else
+        v = v.to_unsafe_h unless v.class == String
         eval "@xvars[@runseq.code][k] = v"
       end
     }
@@ -381,19 +382,20 @@ class MindappController < ApplicationController
   def create_xmain(service)
     c = name2camel(service.module.code)
     custom_controller= "#{c}Controller"
-    Mindapp::Xmain.create :service=>params.service,
-                          :start=>params.Time.now,
-                          :name=>params.service.name,
-                          :ip=> params.get_ip,
-                          :status=>params('I'), # init
-                          :user=>params.current_user,
+    Mindapp::Xmain.create :service=>service,
+                          :start=>Time.now,
+                          :name=>service.name,
+                          :ip=> get_ip,
+                          :status=>'I', # init
+                          :user=>current_user,
                           :xvars=> {
-                              :service_id=>params.service.id, :p=>params,
+                              :service_id=>service.id,
+                              :p=>params.permit(:s, :action, :controller).to_h,
                               :id=>params[:id],
-                              :user_id=>params.current_user.try(:id),
-                              :custom_controller=>params.custom_controller,
-                              :host=>params.request.host,
-                              :referer=>params.request.env['HTTP_REFERER']
+                              :user_id=>current_user.try(:id),
+                              :custom_controller=>custom_controller,
+                              :host=>request.host,
+                              :referer=>request.env['HTTP_REFERER']
                           }
   end
   def create_runseq(xmain)
