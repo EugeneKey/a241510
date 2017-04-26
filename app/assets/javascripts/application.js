@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.mobile-1.4.5
 //= require jquery.mobile.splitview
-//= require jquery.mobile
+//= require jquery.mobile.datebox
 //= require iscroll-wrapper
 //= require iscroll
 //= require mindapp
-//= require jquery.mobile.datebox
