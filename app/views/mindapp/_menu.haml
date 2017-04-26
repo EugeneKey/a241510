@@ -4,7 +4,7 @@
     %div{"data-role" => "header", "data-theme" => "b", "data-backbtn"=>"false"}
       %h1= head
     %div{"data-role" => "content"}
-      %ul{"data-role" => "listview", "data-inset" => "true", "data-theme" => "g"}
+      %ul{"data-role" => "listview", "data-divider-theme" => "a", "data-inset" => "true"}
         %li
           %a{"data-panel" => "main", :href => "/mindapp"} Home
         = render :partial => "mindapp/menu_mm"
